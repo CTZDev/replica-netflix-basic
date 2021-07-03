@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+body {
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  overflow-x: hidden;
+
+  @include mq(small) {
+    font-size: calc(var(--font-size) + 2px);
+  }
+
+  @include mq(medium) {
+    font-size: calc(var(--font-size) + 4px);
+  }
+}
+
+.wrapper {
+  padding: 0 1em;
+}

@@ -1,0 +1,57 @@
+@use '../abstracts' as *;
+
+.footer {
+  padding: 1.5em 0;
+  position: sticky;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--clr-primary);
+
+  &-menu {
+    display: flex;
+    list-style: none;
+    user-select: none;
+
+    li {
+      flex: 1 1 auto;
+    }
+
+    a {
+      text-decoration: none;
+      margin: 0 0.5em;
+      display: block;
+      text-align: center;
+      font-size: 0.7em;
+    }
+  }
+
+  &-item::before {
+    content: "";
+    display: block;
+    margin: auto;
+    width: 24px;
+    height: 24px;
+  }
+
+  :is(.i-home, .i-next, .i-search, .i-download) {
+    filter: invert(42%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(92%) contrast(85%);
+  }
+
+  :is(.i-home, .i-next, .i-search, .i-download):hover {
+    filter: invert(100%) sepia(99%) saturate(0%) hue-rotate(254deg) brightness(110%) contrast(101%);
+  }
+
+  .i-home::before {
+    background: url("../images/icons/home.svg");
+  }
+  .i-next::before {
+    background: url("../../images/icons/cinema.svg");
+  }
+  .i-search::before {
+    background: url("../images/icons/search.svg");
+  }
+  .i-download::before {
+    background: url("../images/icons/download.svg");
+  }
+}

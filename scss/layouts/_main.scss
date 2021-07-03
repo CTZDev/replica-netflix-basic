@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+.category-movies {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.list-movies {
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.4em;
+  }
+
+  .movies {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  :not(:first-child) .movie {
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,294 @@
+@charset "UTF-8";
+:root {
+  --clr-primary: #000000;
+  --clr-secondary: #d22f26;
+  --clr-light: #ffffff;
+  --clr-gray: #686868;
+  --font-size: 16px;
+  --font-family: Netflix;
+}
+
+body {
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  overflow-x: hidden;
+}
+@media only screen and (min-width: 40em) {
+  body {
+    font-size: calc(var(--font-size) + 2px);
+  }
+}
+@media only screen and (min-width: 64em) {
+  body {
+    font-size: calc(var(--font-size) + 4px);
+  }
+}
+
+.wrapper {
+  padding: 0 1em;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.6;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: Netflix;
+  src: url("../../fonts/AvenirNextLTPro-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Netflix;
+  src: url("../../fonts/AvenirNextLTPro-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+.header {
+  height: 198px;
+  padding-top: 1em;
+  position: relative;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.6) 80%, transparent 100%);
+}
+.header-content > a {
+  display: inline-block;
+  margin-bottom: 1.5em;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+}
+.navigation-item {
+  list-style: none;
+}
+.navigation-item a {
+  text-decoration: none;
+  color: var(--clr-light);
+}
+
+.featured {
+  margin-top: -198px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3em;
+}
+@media only screen and (min-width: 40em) {
+  .featured .video-fluid {
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    position: relative;
+    height: 0;
+  }
+  .featured .video-fluid video {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.featured-details {
+  font-size: 0.7em;
+  padding: 0.1em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.featured-details .category {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+.featured-details .category-item {
+  padding: 0 0.2em;
+}
+.featured-details .category-item:not(:first-child)::before {
+  content: "•";
+  margin-right: 0.2em;
+}
+.featured-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.75em 0;
+  background-image: linear-gradient(to top, black 0%, black 50%, transparent 100%);
+}
+.featured-actions :is(.btn-list, .btn-info) {
+  background-color: transparent;
+  color: var(--clr-light);
+  min-width: 80px;
+  border: none;
+  font-weight: 600;
+}
+.featured-actions :is(.btn-list, .btn-info)::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  margin-bottom: 4px;
+}
+.featured-actions .btn-list::before {
+  background: url("../images/icons/plus.svg");
+}
+.featured-actions .btn-play {
+  background-color: var(--clr-light);
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  border: none;
+  font-weight: 600;
+}
+.featured-actions .btn-play::before {
+  content: "";
+  background: url("../images/icons/play.svg") var(--clr-light);
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+.featured-actions .btn-info::before {
+  background: url("../images/icons/info.svg");
+}
+
+.category-movies {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.list-movies h2 {
+  font-size: 1.2em;
+  margin-bottom: 0.4em;
+}
+.list-movies .movies {
+  display: flex;
+  overflow-x: auto;
+}
+.list-movies :not(:first-child) .movie {
+  margin-right: 8px;
+}
+
+.footer {
+  padding: 1.5em 0;
+  position: sticky;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--clr-primary);
+}
+.footer-menu {
+  display: flex;
+  list-style: none;
+  user-select: none;
+}
+.footer-menu li {
+  flex: 1 1 auto;
+}
+.footer-menu a {
+  text-decoration: none;
+  margin: 0 0.5em;
+  display: block;
+  text-align: center;
+  font-size: 0.7em;
+}
+.footer-item::before {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 24px;
+  height: 24px;
+}
+.footer :is(.i-home, .i-next, .i-search, .i-download) {
+  filter: invert(42%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(92%) contrast(85%);
+}
+.footer :is(.i-home, .i-next, .i-search, .i-download):hover {
+  filter: invert(100%) sepia(99%) saturate(0%) hue-rotate(254deg) brightness(110%) contrast(101%);
+}
+.footer .i-home::before {
+  background: url("../images/icons/home.svg");
+}
+.footer .i-next::before {
+  background: url("../../images/icons/cinema.svg");
+}
+.footer .i-search::before {
+  background: url("../images/icons/search.svg");
+}
+.footer .i-download::before {
+  background: url("../images/icons/download.svg");
+}
+
+/*# sourceMappingURL=style.css.map */
