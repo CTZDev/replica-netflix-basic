@@ -7,4 +7,4 @@ Gray: #686868
 Tipografia
 Avenir Next
 
-![Carlos Teran](https://repository-images.githubusercontent.com/382533828/f3980580-dbfc-11eb-8af7-34924600c18e)
+![Carlos Teran](https://repository-images.githubusercontent.com/382726647/32de4a80-dc2d-11eb-871b-0462b782d479)
